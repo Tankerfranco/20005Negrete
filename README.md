@@ -6,4 +6,5 @@
  * History:
  *  - v1.0.1 – Primera entrega.
  *  - v1.1.0 – Segunda entrega.
+ *  - v1.2.0 – Tercera entrega.
  */
