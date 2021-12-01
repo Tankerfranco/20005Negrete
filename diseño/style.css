@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contenedor {
+    display: -ms-grid;
+    display: grid;
+    grid-template: "header header" auto "main main" 1fr "footer footer" 100px / auto 1fr;
+  }
+  
+  .contenedor .header {
+    grid-area: header;
+  }
+  
+  .contenedor .main {
+    grid-area: main;
+  }
+  
+  .contenedor .footer {
+    grid-area: footer;
+  }
