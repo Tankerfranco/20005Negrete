@@ -162,34 +162,33 @@ class Food {
 const combo1 = new Food("Hamburguesa con papas fritas", "200");
 const combo2 = new Food("Milanesas de Soja con ensalada", "300");
 
-function saludo() {
+function saludo() {//un saludito
     alert("Bienvenido a La Tierra Bendita, ahora le traemos el menu (el menu sale en console).");
 }
 
-function orden() {
+function orden() { //esta funcion es para pedir la comida y devuelve el valor de la cuenta. Me gustaria agregarle que puedas pedir mas de una cosa y que ese valor se vaya sumando.
     pedido = prompt("Quiere pedir...? (combo1 o combo2)");
     while(pedido != "no"){
         if(pedido === "combo1"){
             alert(`oh usted quiere ${combo1.nombre}, buena eleccion.`);
-            console.log(combo1.cuenta);
-            return cuenta = 200;
+            return cuenta = cuenta + combo1.precio;
         }else if(pedido === "combo2"){
             alert(`oh usted quiere ${combo2.nombre}, buena eleccion.`);
-            console.log(combo2.cuenta);
-            return cuenta = 300;
+            return cuenta = cuenta + combo2.precio;
         }else{
             alert("No tenemos de eso, vuelva a pedir.");
-            pedido = prompt("Quiere pedir...? (combo1 o combo2)");
         }
-        pedido = prompt("Bueno ahi, le traemos su orden (ponga no)");
+        pedido = prompt("Quiere pedir...? (combo1 o combo2)");
     }
 }
 
 saludo();
 console.log(combo1, combo2);
 orden();
+alert("disfrute de la comida!");
 alert("oh quiere la cuenta, ahi se la traemos.");
 alert(`su cuenta es de ${cuenta}`)
+
 
 
 
