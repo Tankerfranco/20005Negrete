@@ -12,8 +12,8 @@
 // alert("El año en el que naciste es.." + resultado); */
 
 //desafio Dos
-/* 
-let nombre;
+
+/* let nombre;
 let edad = 0;
 nombre = prompt("Ingresa tu nombre");
 if (nombre != ""){
@@ -26,7 +26,7 @@ if (edad <= 18){
     alert("Woow, que joven eres!")
 }else if (edad > 18){
     alert("estas en tus años dorados, aprovechalos!")
-} */
+} */ 
 
 // Desafio Tres
 
@@ -66,7 +66,7 @@ while(salida != "Salir"){
 
 //Desafio Cuatro
 
-/* let compras, salida, recibo;
+/* let compras, salida;
 
 function saludo(){ //Esta funcion te saluda cuando ingresas a la pagina.
     return alert("Bienvenido a la Tierra Bendita");
@@ -120,9 +120,8 @@ function cuenta(){ //Esta funcion es para ver cuanto tiene que pagar el usuario.
 saludo();
 compras = prompt("Que desea comprar? (Milanesas, Hamburguesas o Helado)");
 pedido();
-recibo = prompt("Espero alla disfrutado de su comida, ahora le traigo la cuenta.");
-cuenta(); 
-   */
+alert("Espero alla disfrutado de su comida, ahora le traigo la cuenta.");
+cuenta();  */
 
 //Desafio Complementario
 
@@ -147,4 +146,51 @@ alert("Hola, necesito los siguientes datos para tu carnet.");
 name();
 adress();
 age();
-alert("Tus datos son "+ nombre +" " + direccion +" " + edad); */
+alert("Tus datos son "+ nombre +" " + direccion +" " + edad);
+ */
+//Desafio Cinco
+
+let pedido, cuenta = 0;
+
+class Food {
+    constructor(nombre, precio){
+        this.nombre = nombre;
+        this.precio = Number(precio);
+    }
+}
+
+const combo1 = new Food("Hamburguesa con papas fritas", "200");
+const combo2 = new Food("Milanesas de Soja con ensalada", "300");
+
+function saludo() {
+    alert("Bienvenido a La Tierra Bendita, ahora le traemos el menu (el menu sale en console).");
+}
+
+function orden() {
+    pedido = prompt("Quiere pedir...? (combo1 o combo2)");
+    while(pedido != "no"){
+        if(pedido === "combo1"){
+            alert(`oh usted quiere ${combo1.nombre}, buena eleccion.`);
+            console.log(combo1.cuenta);
+            return cuenta = 200;
+        }else if(pedido === "combo2"){
+            alert(`oh usted quiere ${combo2.nombre}, buena eleccion.`);
+            console.log(combo2.cuenta);
+            return cuenta = 300;
+        }else{
+            alert("No tenemos de eso, vuelva a pedir.");
+            pedido = prompt("Quiere pedir...? (combo1 o combo2)");
+        }
+        pedido = prompt("Bueno ahi, le traemos su orden (ponga no)");
+    }
+}
+
+saludo();
+console.log(combo1, combo2);
+orden();
+alert("oh quiere la cuenta, ahi se la traemos.");
+alert(`su cuenta es de ${cuenta}`)
+
+
+
+
