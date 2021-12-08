@@ -113,7 +113,7 @@ function cuenta(){ //Esta funcion es para ver cuanto tiene que pagar el usuario.
         default:
             alert("Disculpe, podria repetirlo.");
             recibo = prompt("seria tan amable de decirme que pidio?(Milaneas, Helado o Hamburguesas)");
-            break;
+            
     }
 }
 
@@ -127,7 +127,7 @@ cuenta();  */
 
 /* let nombre, direccion, edad;
 
-function name(){
+function nombre(){
     nombre = prompt("Cual es tu nombre? ");
     return nombre;
 }
@@ -143,14 +143,14 @@ function age(){
 }
 
 alert("Hola, necesito los siguientes datos para tu carnet.");
-name();
+nombre();
 adress();
 age();
 alert("Tus datos son "+ nombre +" " + direccion +" " + edad);
  */
 //Desafio Cinco
 
-let pedido, cuenta = 0;
+/* let pedido, cuenta = 0;
 
 class Food {
     constructor(nombre, precio){
@@ -188,7 +188,44 @@ orden();
 alert("disfrute de la comida!");
 alert("oh quiere la cuenta, ahi se la traemos.");
 alert(`su cuenta es de ${cuenta}`)
+ */
 
+//Desafio Seis
+
+const food = ["hamburguesa de lentejas", "milanesas de soja con ensalada", "pizza vegana", "brochetas veggie"];
+const precios = [200, 300, 250, 150];
+console.log(food);
+
+
+let otraCosa = prompt("Muy buenas, bienvenido! Desea pedir? ");
+if(otraCosa == "si"){
+    alert("Deje le muestro el menu");
+    for(const comida of food){
+        console.log(food);
+    }
+    otraCosa = prompt(`que desea del menu? (${food})`)
+    switch (otraCosa) {
+        case food[0]:
+            alert(`ok, serian $${precios[0]}, disfrute de su comida.`);
+            break;
+        case food[1]:
+            alert(`ok, serian $${precios[1]}, disfrute de su comida.`);
+            break;
+        case food[2]:
+            alert(`ok, serian $${precios[2]}, disfrute de su comida.`);
+            break;
+        case food[3]:
+            alert(`ok, serian $${precios[3]}, disfrute de su comida.`);
+            break;
+    
+        default:
+            alert("no tenemos eso, vuelva a pedir");
+    }
+}else if(otraCosa == "no"){
+    alert("Disfrute el dia")
+}else{
+    alert("esta bien, disfrute su comida!");
+}
 
 
 
