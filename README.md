@@ -11,4 +11,7 @@
  *  - v1.3.0 – Cuarta entrega.
  *  - v1.4.0 – Primera entrega complementaria.
  *  - v1.5.0 – Quinta entrega.
+ *  - v1.6.0 – Sexta entrega.
+ *  - v1.7.0 - Segunda entrega complementaria.
+ *  - v1.8.0 - Septima entrega.
  */
