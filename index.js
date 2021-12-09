@@ -228,11 +228,35 @@ if(otraCosa == "si"){
  */
 
 //Desafio Complementario 2
+const comida = [{
+    nombre: "Hamburguesa",
+    precio: 300
+},
+{
+    nombre: "pizza",
+    precio: 250
+},
+{
+    nombre: "macarrones",
+    precio: 270
+}
+];
 
+function mostrarComida() {
+    console.log(`${comida[0].nombre}, sale $${comida[0].precio}.
+    ${comida[1].nombre}, sale $${comida[1].precio}.
+    ${comida[2].nombre}, sale $${comida[2].precio}. `)
+}
+
+mostrarComida();
+
+comida.sort(function(a, b){return a.precio - b.precio});
+
+mostrarComida();
 
 
 //Primera Entrega del Proyecto Final
-let pedido, cuenta;
+/* let pedido, cuenta;
 
 function saludo() {
     alert("Bienvenido a La Tierra Bendita, ahora le decimos el menu.");
@@ -297,7 +321,7 @@ saludo();
 alert(`Tenemos en el menu ${comida.join(" - ")}.`);
 orden();
 recibo();
-
+ */
 
 
 
