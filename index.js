@@ -192,7 +192,7 @@ alert(`su cuenta es de ${cuenta}`)
 
 //Desafio Seis
 
-const food = ["hamburguesa de lentejas", "milanesas de soja con ensalada", "pizza vegana", "brochetas veggie"];
+/* const food = ["hamburguesa de lentejas", "macarrones veganos", "pizza vegana", "brochetas veggie"];
 const precios = [200, 300, 250, 150];
 console.log(food);
 
@@ -217,7 +217,6 @@ if(otraCosa == "si"){
         case food[3]:
             alert(`ok, serian $${precios[3]}, disfrute de su comida.`);
             break;
-    
         default:
             alert("no tenemos eso, vuelva a pedir");
     }
@@ -226,6 +225,78 @@ if(otraCosa == "si"){
 }else{
     alert("esta bien, disfrute su comida!");
 }
+ */
+
+//Desafio Complementario 2
+
+
+
+//Primera Entrega del Proyecto Final
+let pedido, cuenta;
+
+function saludo() {
+    alert("Bienvenido a La Tierra Bendita, ahora le decimos el menu.");
+}
+
+function orden() { 
+    pedido = prompt(`Que quiere pedir? (${comida.join(" - ")})`);
+    while(pedido != "Esc"){
+        switch (pedido) {
+            case comida[0]:
+                alert(`Disfrute de su ${combo1.nombre}.`);
+                pedido = prompt(`y en un rato volveremos con la cuenta. (Escriba Esc)`);
+                break;
+            case comida[1]:
+                alert(`Disfrute de sus ${combo2.nombre}.`);
+                pedido = prompt(`y en un rato volveremos con la cuenta. (Escriba Esc)`);
+                break;
+            case comida[2]:
+                alert(`Disfrute de su ${combo3.nombre}.`);
+                pedido = prompt(`y en un rato volveremos con la cuenta. (Escriba Esc)`);
+                break;
+            case comida[3]:
+                alert(`Disfrute de sus ${combo4.nombre}.`);
+                pedido = prompt(`y en un rato volveremos con la cuenta. (Escriba Esc)`);
+                break;
+            default:
+                alert("Disculpe, no tenemos eso.")
+        }
+    }
+}
+
+function recibo() {
+    cuenta = prompt(`Disculpe, la computadora se descompuso asi que podria decirnos que pidio? (${comida.join(" - ")})`);
+    if (cuenta === combo1.nombre) {
+        alert(`Su cuenta es de $${combo1.precio}`);
+    }else if (cuenta === combo2.nombre){
+        alert(`Su cuenta es de $${combo2.precio}`);
+    
+    }else if (cuenta === combo3.nombre){
+        alert(`Su cuenta es de $${combo3.precio}`);
+    
+    }else if (cuenta === combo4.nombre){
+        alert(`Su cuenta es de $${combo4.precio}`);
+    }
+}
+
+class Food {
+    constructor(nombre, precio){
+        this.nombre = nombre;
+        this.precio = Number(precio);
+    }
+}
+
+const combo1 = new Food("Pizza Napolitana Veggie", "350");
+const combo2 = new Food("Brochetas Veganas", "300");
+const combo3 = new Food("Hamburguesa con Lentejas", "325");
+const combo4 = new Food("Macarrones Veganos", "400");
+
+const comida = ["Pizza Napolitana Veggie", "Brochetas Veganas", "Hamburguesa con Lentejas", "Macarrones Veganos"];
+
+saludo();
+alert(`Tenemos en el menu ${comida.join(" - ")}.`);
+orden();
+recibo();
 
 
 
