@@ -25,27 +25,72 @@ footer {
   background-color: #198754;
 }
 
-.platillos {
+.main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.cont {
+  width: 100%;
+  height: calc(100vh - auto - 100px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-top: 1rem;
-  font-size: 2rem;
+  margin-top: 60px;
 }
 
-.platillos #menu {
-  border: 2px solid black;
-  font-size: 1.5rem;
+.cont__carta {
+  width: 330px;
+  height: 600px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 20px;
+  text-align: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.cont__carta--imagen {
+  width: 330px;
+  height: 220px;
+}
+
+.cont__carta--comida {
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+.cont__carta--texto {
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: black;
+  font-weight: 300;
+}
+
+.cont__carta--link {
+  color: black;
+  text-decoration: none;
+}
+
+.cont__carta:hover {
+  -webkit-transform: translateY(-15px);
+          transform: translateY(-15px);
+  -webkit-box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
 }
 
 .footer {
