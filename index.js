@@ -228,7 +228,7 @@ if(otraCosa == "si"){
  */
 
 //Desafio Complementario 2
-const comida = [{
+/* const comida = [{
     nombre: "Hamburguesa",
     precio: 300
 },
@@ -253,7 +253,7 @@ mostrarComida();
 comida.sort(function(a, b){return a.precio - b.precio});
 
 mostrarComida();
-
+ */
 
 //Primera Entrega del Proyecto Final
 /* let pedido, cuenta;
@@ -322,6 +322,5 @@ alert(`Tenemos en el menu ${comida.join(" - ")}.`);
 orden();
 recibo();
  */
-
 
 
