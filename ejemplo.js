@@ -31,7 +31,7 @@ function foodList(item, index){
 }
 document.body.appendChild(menu); */
 
-//Desafio nueve
+//Desafio nueve y complementario
 document.addEventListener('DOMContentLoaded', () => {
     cards()
   })

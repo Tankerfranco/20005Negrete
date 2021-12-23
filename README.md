@@ -15,4 +15,6 @@
  *  - v1.7.0 - Segunda entrega complementaria.
  *  - v1.8.0 - Septima entrega.
  *  - v1.9.0 - Octava entrega.
+ *  - v1.9.0 - Novena entrega.
+ *  - v1.9.0 - Tercer entrega complementaria.
  */
