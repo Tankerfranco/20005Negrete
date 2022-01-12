@@ -1,54 +1,137 @@
 // variables globales
-const cardHtml = document.getElementById("product");
-let productos = [];
-let carrito;
+const carrito = document.querySelector('#carrito');
+const contenedorCarrito = document.querySelector('#lista-carrito tbody')
+const vaciarCarritoBtn = document.querySelector('#vaciar-carrito');
+const listaComida = document.querySelector('#listaComida');
+let articulosCarrito = [];
 
-//Desafio nueve y complementario
-document.addEventListener('DOMContentLoaded', () => {
-    cards();
-    cardHtml.addEventListener('click', agregarProducto);
-  })
   
-  
-  class Producto{
-      constructor (id, nombre, precio, descripcion, img, categoria){
-          this.id = id;
-          this.nombre = nombre;
-          this.precio = precio;
-          this.descripcion = descripcion;
-          this.img = img;
-          this.categoria;
-        }
-    }
-    
-productos.push(new Producto(1, "Pizza Napolitana Veggie", 350, "Pizza Napolitana con una deliciosa masa y productos veganos.", "./imagenes/pizzaNapoVege.jpg", "pizza"));
-productos.push(new Producto(2, "Brochetas Veganas", 300, "Brochetas Veganas 100% naturales y con los mejores vegetales.", "./imagenes/brochetasVeganas.jpg", "brochetas"));
-productos.push(new Producto(3, "Hamburguesa con Lentejas", 325, "Hamburguesa con Lenteja que simula el sabor de la carne.", "./imagenes/hamburguesa.jpg", "hamburguesa"));
-productos.push(new Producto(4, "Macarrones Veganos", 400, "Macarrones Veganos muy deliciosos y de un sabor inigualable.", "./imagenes/macarronesVeganos.jpg", "pastas"));
+cargarEventListeners();
+function cargarEventListeners() {
+    // Agregamos una comida presionando "Agregar al Carrito"
+    listaComida.addEventListener('click', agregarComida);
 
-const cards = () => {
+    // Elimina comida del carrito
+    carrito.addEventListener('click', eliminarComida);
 
-    cardHtml.innerHTML = ``
-    
-    for (let i of productos) {
-      let card = document.createElement("div");
-      card.classList.add(`cont`);
-      card.innerHTML = `
-      <div class="cont__carta">
-        <img src="${i.img}" alt="brochetas veganas" class="cont__carta--imagen"></img>
-        <h3 class="cont__carta--comida">${i.nombre}</h3>
-        <p>${i.descripcion}</p>
-        <p>$${i.precio}</p>
-        <button id="${i.id}">Agregar al carrito</button>`;
-      cardHtml.appendChild(card);
-      let button = document.getElementById(i.id);
-      button.addEventListener("click", () => agregarAlCarrito(i))
+    // Muestra las comida de Local Storage
+    document.addEventListener('DOMContentLoaded', () => {
+        articulosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+        carritoHTML();
+    })
+
+    // Vaciar el carrito
+    vaciarCarritoBtn.addEventListener('click', () => {
+        
+        articulosCarrito = []; // reseteamos el arreglo
+        
+        limpiarHTML(); // Eliminamos todo el  HTML
+    });
+}
+
+// Funciones
+function agregarComida(e) {
+    e.preventDefault();
+    if (e.target.classList.contains('agregar-carrito')) {
+        const comidaSelecionada = e.target.parentElement.parentElement;
+        leerDatosComida(comidaSelecionada);
     }
 }
 
-function agregarProducto() {
+// Elimina un curso del carrito
+function eliminarComida(e) {
+    // console.log(e.target.classList);
+    if (e.target.classList.contains('borrar-comida')) {
+        // console.log(e.target.getAttribute('data-id'));
+        const comidaId = e.target.getAttribute('data-id');
 
-  console.log("Producto agregado al carrito");
+        // Elimina del arreglo de articulosCarrito por el data-id
+        articulosCarrito = articulosCarrito.filter( comida => comida.id !== comidaId);
+        // console.log(articulosCarrito); // Muestra el arreglo actualizado. Sin el curso que fue eliminado
+        carritoHTML(); // Iterar sobre el carrito y mostrar su HTML
+    }
 }
-  
+
+// Lee el contenido del HTML al que le dimos click y extrae la información del curso
+function leerDatosComida(comida) {
+    // console.log(comida);
+
+    // Crear un objeto con el contenido del curso actual
+    const infoComida = {
+        imagen: comida.querySelector('img').src,
+        titulo: comida.querySelector('h3').textContent,
+        precio: comida.querySelector('.precio').textContent,
+        id: comida.querySelector('button').getAttribute('data-id'),
+        cantidad: 1
+    }
+
+    // Revisa si un elemento ya existe en el carrito
+    const existe = articulosCarrito.some( comida => comida.id === infoComida.id );
+    if (existe) {
+        // Actualizamos la cantidad
+        const comida = articulosCarrito.map( comida => {
+            if (comida.id === infoComida.id) {
+                comida.cantidad++;
+                return comida; // retorna el objeto actualizado
+            } else {
+                return comida; // retorna los objetos que no son los duplicados
+            }
+        });
+        articulosCarrito = [...comida];
+    } else {
+        // Agrega elementos al arreglo de carrito
+        articulosCarrito = [...articulosCarrito, infoComida];
+    }
+
+    console.log(articulosCarrito);
+
+    carritoHTML();
+}
+
+// Muestra el Carrito de compras en el HTML
+function carritoHTML() {
+
+    // Limpiar el HTML
+    limpiarHTML();
+
+    // Recorre el carrito y genera el HTML
+    articulosCarrito.forEach( comida => {
+        const { imagen, titulo, precio, cantidad, id } = comida;
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>
+                <img src="${imagen}" width="100">
+            </td>
+            <td>${titulo}</td>
+            <td>${precio}</td>
+            <td>${cantidad}</td>
+            <td>
+                <a href="#" class="borrar-comida" data-id="${id}"> X </a>
+            </td>
+        `;
+
+        // Agregamos el HTML del carrito en el tbody
+        contenedorCarrito.appendChild(row);
+    });
+
+    // Agregar el carrito de compras al storage
+    sincronizarStorage();
+
+}
+
+function sincronizarStorage() {
+    localStorage.setItem('carrito', JSON.stringify(articulosCarrito));
+}
+
+// Elimina los cursos del tbody
+function limpiarHTML() {
+    // forma lenta de limpiar el HTML
+    // contenedorCarrito.innerHTML = '';
+
+    // mejor performance para limpiar nuestro HTML
+    while(contenedorCarrito.firstChild) {
+        contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+    }
+}
 
