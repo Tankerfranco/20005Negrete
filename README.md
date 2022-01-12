@@ -1,5 +1,5 @@
 /**
- * @version: 1.2.0
+ * @version: 1.11.0
  * @author: Franco Negrete.
  * @fecha: 21/11/2021
  *
