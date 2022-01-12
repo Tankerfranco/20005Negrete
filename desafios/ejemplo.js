@@ -32,7 +32,7 @@ function foodList(item, index){
 document.body.appendChild(menu); */
 
 //Desafio nueve y complementario
-document.addEventListener('DOMContentLoaded', () => {
+/* document.addEventListener('DOMContentLoaded', () => {
     cards()
   })
   
@@ -79,3 +79,5 @@ const cards = () => {
             }
     }
 }
+ */
+

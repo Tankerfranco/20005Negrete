@@ -18,4 +18,6 @@
  *  - v1.9.0 - Novena entrega.
  *  - v1.10.0 - Tercer entrega complementaria.
  *  - v1.11.0 - Decima entrega.
+ *  - v1.12.0 - Onceaba entrega. 
+
  */
