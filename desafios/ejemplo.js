@@ -81,3 +81,45 @@ const cards = () => {
 }
  */
 
+//Desafio Once y complementario.
+
+$("h1").mouseenter(function(){
+    $("#primero").fadeOut();
+})
+$("h1").mouseleave(function(){
+    $("#primero").fadeIn();
+})
+$("#primero").css({"background-color": "blue"});
+$("button").click(function(){
+    console.log("soy un texto");
+})
+$(".hide").click(function(){
+    $(".texto").hide();
+})
+$(".show").dblclick(function(){
+    $(".texto").show();
+})
+
+$("#1").mouseenter(function(){
+    $("#2").slideUp();
+})
+
+$("#1").mouseleave(function(){
+    $("#2").slideDown();
+})
+
+$(".creador").click(function(){
+    $("#3").after("<p>Hola apareci espontaneamente</p>");
+})
+
+$(".borrador").click(function(){
+    $("#3").remove();
+})
+
+$(".doy").click(function(){
+    $("h1").addClass("blue")
+})
+
+$(".quito").click(function(){
+    $("h1").removeClass("blue")
+})
