@@ -9,11 +9,14 @@ let articulosCarrito = [];
 cargarEventListeners();
 function cargarEventListeners() {
     // Agregamos una comida presionando "Agregar al Carrito"
-    listaComida.addEventListener('click', agregarComida);
+   
+    listaComida.addEventListener('click', agregarComida); 
 
     // Elimina comida del carrito
-    carrito.addEventListener('click', eliminarComida);
+   
 
+    carrito.addEventListener('click', eliminarComida);
+ 
     // Muestra las comida de Local Storage
     document.addEventListener('DOMContentLoaded', () => {
         articulosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -22,12 +25,18 @@ function cargarEventListeners() {
     })
 
     // Vaciar el carrito
-    vaciarCarritoBtn.addEventListener('click', () => {
+    $("#vaciar-carrito").click(function(){
+        articulosCarrito = [];
+
+        limpiarHTML();
+    });
+
+    /* vaciarCarritoBtn.addEventListener('click', () => {
         
         articulosCarrito = []; // reseteamos el arreglo
         
         limpiarHTML(); // Eliminamos todo el  HTML
-    });
+    }); */
 }
 
 // Funciones
@@ -57,7 +66,7 @@ function eliminarComida(e) {
 function leerDatosComida(comida) {
     // console.log(comida);
 
-    // Crear un objeto con el contenido del curso actual
+    
     const infoComida = {
         imagen: comida.querySelector('img').src,
         titulo: comida.querySelector('h3').textContent,
@@ -98,8 +107,8 @@ function carritoHTML() {
     // Recorre el carrito y genera el HTML
     articulosCarrito.forEach( comida => {
         const { imagen, titulo, precio, cantidad, id } = comida;
-        const row = document.createElement('tr');
-        row.innerHTML = `
+        const cont__carta = document.createElement('tr');
+        cont__carta.innerHTML = `
             <td>
                 <img src="${imagen}" width="100">
             </td>
@@ -112,7 +121,7 @@ function carritoHTML() {
         `;
 
         // Agregamos el HTML del carrito en el tbody
-        contenedorCarrito.appendChild(row);
+        contenedorCarrito.appendChild(cont__carta);
     });
 
     // Agregar el carrito de compras al storage

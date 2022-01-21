@@ -1,0 +1,19 @@
+.coso{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+    padding: 10px;
+    &--titulo{
+        font-size: 3rem;
+    }
+    &--texto{
+        font-size: 2rem;
+    }
+    &--parrafo{
+        font-size: 1.5rem;
+    }
+
+}
