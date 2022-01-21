@@ -1,3 +1,16 @@
 .blue{
     color: blue;
   }
+
+.contenedor{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3em;
+}
+
+.texto{
+  width: 15em;
+  
+}
